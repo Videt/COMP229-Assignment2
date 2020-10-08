@@ -27,7 +27,7 @@
 }
 
 #contactForm {
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 #contactSubmit {
@@ -53,4 +53,12 @@
 
 #homeText {
     font-size: x-large;
+}
+
+#contactHeader {
+    padding-top: 20px;
+}
+
+#contactList {
+    padding-top: 40px;
 }
