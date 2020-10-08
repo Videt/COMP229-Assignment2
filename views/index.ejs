@@ -13,23 +13,19 @@
       <% } 
       
       else if (title == "About") { %>
-      <img src="/assets/images/face.jpg" class="img-fluid" id="face" alt="Face">
-      <p class="h4"><a href="/assets/resume/resume.pdf">Resume</a><br>
-      <br>
-      I am Egor Shevchenko, a Russian student studying Software Engineering Technology at Centennial College.
-      </p>
+      <%- include partials/about.ejs %>
       <% } 
 
       else if (title == "Projects") { %>
-      <p class="h4">Projects</p>
+      <p>Projects</p>
       <% } 
 
       else if (title == "Services") { %>
-      <p class="h4">Services</p>
+      <p><%- include partials/services.ejs %></p>
       <% } 
 
       else if (title == "Contact") { %>
-      <p class="h4">Contact</p>
+      <p><%- include partials/contact.ejs %></p>
       <% } %>
 
   </div>

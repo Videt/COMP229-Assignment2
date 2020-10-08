@@ -1,3 +1,4 @@
+/* Egor Shevchenko - 301084181. October 8, 2020*/
 /* custom css goes here*/
 .container .jumbotron .img-fluid {
     padding-right: 20px;
@@ -9,10 +10,27 @@
     }
 
 #face {
-        max-width: 50%;
+        max-width: 45%;
         float: left;
 }
 
 .jumbotron {
-    height: 900px;
+    height: 800px;
     }
+
+#servicesList {
+    font-size: large;
+}
+
+#aboutText {
+    font-size: x-large;
+}
+
+#contactForm {
+    padding-top: 20px;
+}
+
+#contactSubmit {
+    position: absolute;
+    top: 700px;
+}
