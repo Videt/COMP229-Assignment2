@@ -15,7 +15,7 @@
 }
 
 .jumbotron {
-    height: 800px;
+    min-height: 800px;
     }
 
 #servicesList {
@@ -33,4 +33,24 @@
 #contactSubmit {
     position: absolute;
     top: 700px;
+}
+
+#logo {
+    width: 10%;
+}
+
+#project1 {
+    max-width: 100%;
+}
+
+#project2 {
+    max-width: 100%;
+}
+
+#projectsList {
+    font-size: large;
+}
+
+#homeText {
+    font-size: x-large;
 }

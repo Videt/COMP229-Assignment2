@@ -9,7 +9,7 @@
   <h1 class="display-4"><%= title %> page</h1>
 
   <% if (title == "Home") { %>
-      <p class="h4">Home</p>
+      <%- include partials/home.ejs %>
       <% } 
       
       else if (title == "About") { %>
@@ -17,7 +17,7 @@
       <% } 
 
       else if (title == "Projects") { %>
-      <p>Projects</p>
+      <p><%- include partials/projects.ejs %></p>
       <% } 
 
       else if (title == "Services") { %>
