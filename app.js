@@ -1,3 +1,5 @@
+// Egor Shevchenko - 301084181. October 8, 2020
+
 // installed 3rd party packages
 let createError = require('http-errors');
 let express = require('express');

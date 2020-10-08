@@ -1,3 +1,5 @@
+// Egor Shevchenko - 301084181. October 8, 2020
+
 // IIFE -- immediately Invoked Function Expression
 (function()
 {

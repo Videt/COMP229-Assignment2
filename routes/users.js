@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+// Egor Shevchenko - 301084181. October 8, 2020
+
+let express = require('express');
+let router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

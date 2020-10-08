@@ -1,1 +1,18 @@
-/* custom css goes here
+/* custom css goes here*/
+.container .jumbotron .img-fluid {
+    padding-right: 20px;
+    padding-top: 20px;
+    }
+
+.container .jumbotron p {
+    padding-top: 20px;
+    }
+
+#face {
+        max-width: 50%;
+        float: left;
+}
+
+.jumbotron {
+    height: 900px;
+    }

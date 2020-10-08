@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+// Egor Shevchenko - 301084181. October 8, 2020
+
+let express = require('express');
+let router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,8 +20,8 @@ router.get('/about', function(req, res, next) {
 
 
 /* GET products page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', { title: 'Products' });
+router.get('/projects', function(req, res, next) {
+  res.render('index', { title: 'Projects' });
 });
 
 

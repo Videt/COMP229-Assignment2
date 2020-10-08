@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// Egor Shevchenko - 301084181. October 8, 2020
+
 /**
  * Module dependencies.
  */
