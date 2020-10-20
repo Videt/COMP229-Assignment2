@@ -7,22 +7,35 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan'); // logs requests and responses
 
+//database setup
+let mongoose = require('mongoose');
+let DB = require('./db');
+
+//point mongoose to the DB URI
+mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+let mongoDB = mongoose.connection;
+mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
+mongoDB.once('open', ()=>{
+  console.log('Connected to MongoDB...')
+});
+
 // do all routing in these files
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
 
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs'); // express -e
 
 app.use(logger('dev')); // logs the information about requests
 app.use(express.json()); // helps to recognize JSON objects
 app.use(express.urlencoded({ extended: false })); // allows to read URL data (GET requests)
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); // use public directory
-app.use(express.static(path.join(__dirname, 'node_modules'))); // use node_modules directory
+app.use(express.static(path.join(__dirname, '../public'))); // use public directory
+app.use(express.static(path.join(__dirname, '../node_modules'))); // use node_modules directory
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
