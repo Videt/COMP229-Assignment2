@@ -22,7 +22,7 @@ mongoDB.once('open', ()=>{
 
 // do all routing in these files
 let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
+let userRouter = require('../routes/user');
 
 let app = express();
 
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, '../public'))); // use public direct
 app.use(express.static(path.join(__dirname, '../node_modules'))); // use node_modules directory
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
