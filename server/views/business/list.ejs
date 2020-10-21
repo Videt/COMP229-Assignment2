@@ -1,0 +1,45 @@
+<!--Egor Shevchenko - 301084181. October 21, 2020-->
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<main class="container">
+<div class="row">
+    <div class="offset-md-1 col-md-8">
+        <h1><%= title %></h1>
+        <br>
+        <table class="table table-bordered table-striped table-hover">
+                <!--Header Row-->
+                <tr class>
+                    <th class="text-center">Contact Name</th>
+                    <th class="text-center">Contact Number</th>
+                    <th class="text-center">Email Adress</th>
+                    <th class="text-center">Update</th>
+                    <th class="text-center">Delete</th>
+                </tr>
+
+                <!--Repeatable Template Row-->
+
+                <% for(let count = 0; count < businessList.length; count++) { %>
+                    <tr>
+                        <td class="text-center"><%= businessList[count].name %></td>
+                        <td class="text-center"><%= businessList[count].number %></td>
+                        <td class="text-center"><%= businessList[count].email %></td>
+                        <td class="text-center"><a href="/business/update/<%= businessList[count]._id %>" class="btn btn-primary">
+                        <i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/business/delete/<%= businessList[count]._id %>" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                <% } %>
+        </table>
+    </div>
+</div>
+</main>
+
+
+<%- include ../partials/bottom_nav.ejs %>
+
+<%- include ../partials/footer.ejs %>

@@ -23,6 +23,7 @@ mongoDB.once('open', ()=>{
 // do all routing in these files
 let indexRouter = require('../routes/index');
 let userRouter = require('../routes/user');
+let businessRouter = require('../routes/business');
 
 let app = express();
 
@@ -34,11 +35,12 @@ app.use(logger('dev')); // logs the information about requests
 app.use(express.json()); // helps to recognize JSON objects
 app.use(express.urlencoded({ extended: false })); // allows to read URL data (GET requests)
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public'))); // use public directory
-app.use(express.static(path.join(__dirname, '../node_modules'))); // use node_modules directory
+app.use(express.static(path.join(__dirname, '../../public'))); // use public directory
+app.use(express.static(path.join(__dirname, '../../node_modules'))); // use node_modules directory
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/business', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

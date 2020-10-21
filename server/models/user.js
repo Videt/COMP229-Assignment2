@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 let userModel = mongoose.Schema({
     username: String,
     password: String,
-    email: String,
+    email: String
 },
 {
     collection: "users"

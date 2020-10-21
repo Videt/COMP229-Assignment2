@@ -40,11 +40,6 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login' });
 });
 
-/* GET business contact page. */
-router.get('/business', function(req, res, next) {
-  res.render('business', { title: 'Business Contact List' });
-});
-
 /* GET update page. */
 router.get('/update', function(req, res, next) {
   res.render('update', { title: 'Update' });

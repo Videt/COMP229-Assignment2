@@ -14,9 +14,9 @@ router.get('/', (req, res, next) => {
         }
         else
         {
-            //console.log(UserList);
+            //console.log(userList);
 
-            res.render('user', {title: 'Users List', userList: userList})
+            res.render('user', {title: 'Users', userList: userList})
         }
     });
 });
