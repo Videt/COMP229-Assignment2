@@ -7,6 +7,13 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan'); // logs requests and responses
 
+//modules for authentication
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+
 //database setup
 let mongoose = require('mongoose');
 let DB = require('./db');
@@ -37,6 +44,30 @@ app.use(express.urlencoded({ extended: false })); // allows to read URL data (GE
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public'))); // use public directory
 app.use(express.static(path.join(__dirname, '../../node_modules'))); // use node_modules directory
+
+//setup express session
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize flash
+app.use(flash());
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport user configuration
+
+// create a User Model Instance
+let userModel = require('../models/user');
+let User = userModel.User;
+
+// serialize and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
