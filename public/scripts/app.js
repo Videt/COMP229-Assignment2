@@ -15,11 +15,11 @@
                 if(!confirm("Are you sure?")) 
                 {
                     event.preventDefault();
-                    window.location.assign('/business');
+                    window.location.assign('/business-list');
                 }
             });
         }
     }
     
     window.addEventListener("load", Start);
-})
+})();

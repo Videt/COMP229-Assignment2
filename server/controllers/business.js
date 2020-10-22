@@ -1,9 +1,9 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongooose');
+let mongoose = require('mongoose');
 
 //create a reference to the model
-let Business = require('../model/book');
+let Business = require('../models/business');
 
 module.exports.displayBusiness = (req, res, next) => {
     Business.find((err, businessList) => {
@@ -56,7 +56,7 @@ module.exports.processUpdatePage = (req, res, next) => {
         else
         {
             // refresh the business list
-            res.redirect('/business');
+            res.redirect('/business-list');
         }
     });
 };
@@ -73,7 +73,7 @@ module.exports.performDelete = (req, res, next) => {
         else
         {
             // refresh the business list
-            res.redirect('/business');
+            res.redirect('/business-list');
         }
     });
-};
+}

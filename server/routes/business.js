@@ -3,7 +3,7 @@ let express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-// connect to our user model
+// connect to our model
 let Business = require('../models/business');
 
 let businessController = require('../controllers/business');
@@ -19,6 +19,6 @@ router.get('/update/:id', businessController.displayUpdatePage);
 router.post('/update/:id', businessController.processUpdatePage);
 
 /* GET to perform Deletion - DELETE Operation*/
-router.post('/delete/:id', businessController.performDelete);
+router.get('/delete/:id', businessController.performDelete);
 
 module.exports = router;
