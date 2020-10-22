@@ -10,7 +10,7 @@ module.exports.displayAboutPage = (req, res, next) => {
 }
 
 module.exports.displayProjectsPage = (req, res, next) => {
-    res.render('index', {title: 'Products'});
+    res.render('index', {title: 'Projects'});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
