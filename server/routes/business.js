@@ -6,81 +6,19 @@ let mongoose = require('mongoose');
 // connect to our user model
 let Business = require('../models/business');
 
-/* GET route for the Business Contacts List page - READ Operation*/
-router.get('/', (req, res, next) => {
-    Business.find((err, businessList) => {
-        if(err)
-        {
-            return console.error(err);
-        }
-        else
-        {
-            //console.log(businessList);
+let businessController = require('../controllers/business');
 
-            res.render('business/list', {title: 'Business Contacts', businessList: businessList});
-        }
-    });
-});
+/* GET route for the Business Contacts List page - READ Operation*/
+router.get('/', businessController.displayBusiness);
 
 
 /* GET route for displaying the Update page - CREATE Operation*/
-router.get('/update/:id', (req, res, next) => {
-    let id = req.params.id;
-
-    Business.findById(id, (err, businessToUpdate) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //show the update view
-            res.render('business/update', {title: 'Update Business Contact', business: businessToUpdate});
-        }
-    });
-});
+router.get('/update/:id', businessController.displayUpdatePage);
 
 /* POST route for processing the Update page - CREATE Operation*/
-router.post('/update/:id', (req, res, next) => {
-    let id = req.params.id
-
-    let updatedBusiness = Business({
-        "_id": id,
-        "name": req.body.name,
-        "number": req.body.number,
-        "email": req.body.email
-    });
-
-    Business.updateOne({_id: id}, updatedBusiness, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            // refresh the business list
-            res.redirect('/business');
-        }
-    });
-});
+router.post('/update/:id', businessController.processUpdatePage);
 
 /* GET to perform Deletion - DELETE Operation*/
-router.post('/delete/:id', (req, res, next) => {
-    let id = req.params.id;
+router.post('/delete/:id', businessController.performDelete);
 
-    Business.remove({_id: id}, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            // refresh the business list
-            res.redirect('/business');
-        }
-    });
-});
 module.exports = router;

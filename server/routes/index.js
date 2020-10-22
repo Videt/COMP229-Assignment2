@@ -3,32 +3,22 @@
 let express = require('express');
 let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+let indexController = require('../controllers/index');
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/', indexController.displayHomePage);
+
+/* GET home page. */
+router.get('/home', indexController.displayHomePage);
 
 /* GET about us page. */
-router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About' });
-});
-
+router.get('/about', indexController.displayAboutPage);
 
 /* GET products page. */
-router.get('/projects', function(req, res, next) {
-  res.render('index', { title: 'Projects' });
-});
+router.get('/projects', indexController.displayProjectsPage);
 
-
-/* GET about us page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services' });
-});
+/* GET services page. */
+router.get('/services', indexController.displayServicesPage);
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
