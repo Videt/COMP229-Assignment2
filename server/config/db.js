@@ -2,5 +2,6 @@
 module.exports = 
 {
     //"URI": "mongodb://localhost/business"
-    "URI": "mongodb+srv://egor:VNZ0L22mOUkv1Kze@mongodbserver.kwik2.mongodb.net/business_contacts?retryWrites=true&w=majority"
+    "URI": "mongodb+srv://egor:VNZ0L22mOUkv1Kze@mongodbserver.kwik2.mongodb.net/business_contacts?retryWrites=true&w=majority",
+    "Secret": 'SomeSecret'
 }
