@@ -3,22 +3,31 @@ let express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-// connect to our model
-let Business = require('../models/business');
+let passport = require('passport');
 
 let businessController = require('../controllers/business');
 
+// helper function for guard purposes
+function requireAuth(req, res, next)
+{
+    // check if the user is logged in
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login');
+    }
+    next();
+}
+
 /* GET route for the Business Contacts List page - READ Operation*/
-router.get('/', businessController.displayBusiness);
+router.get('/', requireAuth, businessController.displayBusiness);
 
+/* GET route for displaying the Update page - UPDATE Operation*/
+router.get('/update/:id', requireAuth, businessController.displayUpdatePage);
 
-/* GET route for displaying the Update page - CREATE Operation*/
-router.get('/update/:id', businessController.displayUpdatePage);
-
-/* POST route for processing the Update page - CREATE Operation*/
-router.post('/update/:id', businessController.processUpdatePage);
+/* POST route for processing the Update page - UPDATE Operation*/
+router.post('/update/:id', requireAuth, businessController.processUpdatePage);
 
 /* GET to perform Deletion - DELETE Operation*/
-router.get('/delete/:id', businessController.performDelete);
+router.get('/delete/:id', requireAuth, businessController.performDelete);
 
 module.exports = router;

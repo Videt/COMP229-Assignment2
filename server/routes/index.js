@@ -25,15 +25,13 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
 
-/* GET login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
-});
+/* GET Route for displaying the Login page */
+router.get('/login', indexController.displayLoginPage);
 
-/* GET update page. */
-router.get('/update', function(req, res, next) {
-  res.render('update', { title: 'Update' });
-});
+/* POST Route for processing the Login page */
+router.post('/login', indexController.processLoginPage);
 
+/* GET to perform User Logout */
+router.get('/logout', indexController.performLogout);
 
 module.exports = router;
