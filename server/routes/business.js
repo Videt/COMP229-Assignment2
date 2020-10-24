@@ -3,6 +3,8 @@ let express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+let jwt = require('jsonwebtoken');
+
 let passport = require('passport');
 
 let businessController = require('../controllers/business');
@@ -19,7 +21,7 @@ function requireAuth(req, res, next)
 }
 
 /* GET route for the Business Contacts List page - READ Operation*/
-router.get('/', businessController.displayBusiness);
+router.get('/', requireAuth, businessController.displayBusiness);
 
 /* GET route for displaying the Update page - UPDATE Operation*/
 router.get('/update/:id', requireAuth, businessController.displayUpdatePage);
