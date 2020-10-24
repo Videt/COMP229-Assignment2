@@ -11,16 +11,23 @@
         <table class="table table-bordered table-striped table-hover">
                 <!--Header Row-->
                 <tr class>
+                <% if(typeof displayName == 'string' && displayName) { %>
                     <th class="text-center">Contact Name</th>
                     <th class="text-center">Contact Number</th>
                     <th class="text-center">Email Adress</th>
                     <th class="text-center">Update</th>
                     <th class="text-center">Delete</th>
+                    <% } else { %>
+                    <th class="text-center">Contact Name</th>
+                    <th class="text-center">Contact Number</th>
+                    <th class="text-center">Email Adress</th>
+                    <% } %>
                 </tr>
 
                 <!--Repeatable Template Row-->
                 <% for(let count = 0; count < businessList.length; count++) { %>
                     <tr>
+                    <% if(typeof displayName == 'string' && displayName) { %>
                         <td class="text-center"><%= businessList[count].name %></td>
                         <td class="text-center"><%= businessList[count].number %></td>
                         <td class="text-center"><%= businessList[count].email %></td>
@@ -31,6 +38,11 @@
                             <a href="/business-list/delete/<%= businessList[count]._id %>" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i></a>
                         </td>
+                        <% } else { %>
+                        <td class="text-center"><%= businessList[count].name %></td>
+                        <td class="text-center"><%= businessList[count].number %></td>
+                        <td class="text-center"><%= businessList[count].email %></td>
+                        <% } %>
                     </tr>
                 <% } %>
         </table>

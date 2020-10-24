@@ -35,5 +35,14 @@
     "@types/passport": "^1.0.4",
     "@types/passport-local": "^1.0.33",
     "@types/passport-local-mongoose": "^4.0.13"
-  }
+  },
+  "description": "Assignment 2 COMP 229, Fall 2020",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Videt/COMP229-Assignment2"
+  },
+  "author": "Egor Shevchenko",
+  "license": "ISC",
+  "homepage": "https://github.com/Videt/COMP229-Assignment2"
 }

@@ -1,3 +1,5 @@
+//Egor Shevchenko - 301084181. October 21, 2020
+
 // require modules for the User Model
 
 let mongoose = require('mongoose');

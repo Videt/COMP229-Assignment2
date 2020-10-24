@@ -1,3 +1,5 @@
+//Egor Shevchenko - 301084181. October 25, 2020
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -8,19 +10,19 @@ let userModel = require('../models/user');
 let User = userModel.user; //alias
 
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', {title: 'Home'});
+    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', {title: 'About'});
+    res.render('index', {title: 'About', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayProjectsPage = (req, res, next) => {
-    res.render('index', {title: 'Projects'});
+    res.render('index', {title: 'Projects', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', {title: 'Services'});
+    res.render('index', {title: 'Services', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayLoginPage = (req, res, next) => {

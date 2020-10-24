@@ -1,3 +1,5 @@
+//Egor Shevchenko - 301084181. October 25, 2020
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -15,7 +17,9 @@ module.exports.displayBusiness = (req, res, next) => {
         {
             //console.log(businessList);
 
-            res.render('business/list', {title: 'Business Contacts', businessList: businessList});
+            res.render('business/list', {title: 'Business Contacts',
+            businessList: businessList,
+            displayName: req.user ? req.user.displayName : ''});
         }
     });
 }
@@ -32,7 +36,9 @@ module.exports.displayUpdatePage = (req, res, next) => {
             else
             {
                 //show the update view
-                res.render('business/update', {title: 'Update Business Contact', business: businessToUpdate});
+                res.render('business/update', {title: 'Update Business Contact',
+                business: businessToUpdate,
+                displayName: req.user ? req.user.displayName : ''});
             }
         });
     };

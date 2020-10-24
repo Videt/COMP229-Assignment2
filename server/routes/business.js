@@ -19,7 +19,7 @@ function requireAuth(req, res, next)
 }
 
 /* GET route for the Business Contacts List page - READ Operation*/
-router.get('/', requireAuth, businessController.displayBusiness);
+router.get('/', businessController.displayBusiness);
 
 /* GET route for displaying the Update page - UPDATE Operation*/
 router.get('/update/:id', requireAuth, businessController.displayUpdatePage);
